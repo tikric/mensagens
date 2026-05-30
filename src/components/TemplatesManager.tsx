@@ -78,7 +78,7 @@ export default function TemplatesManager({ templates, onAddTemplate, onUpdateTem
             "Authorization": `Bearer ${groqKey}`,
           },
           body: JSON.stringify({
-            model: "llama3-8b-8192",
+            model: "llama-3.1-8b-instant",
             messages: [
               {
                 role: "system",
@@ -131,6 +131,47 @@ Regras:
     } finally {
       setIsLoadingAi(false);
     }
+  };
+
+  const handleGenerateLocalFallback = () => {
+    if (!text.trim()) return;
+    
+    const hooks = [
+      "🔥 OPORTUNIDADE ÚNICA: ",
+      "💡 Olha que dica incrível para você: ",
+      "🚀 SEU NEGÓCIO NO PRÓXIMO NÍVEL: ",
+      "📢 ATENÇÃO: Se liga nessa novidade: ",
+      "📌 ATENÇÃO PESSOAL! Leia com atenção: ",
+      "✨ Já pensou em conquistar seus objetivos mais rápido? ",
+      "⚠️ ATENÇÃO EXCLUSIVA: ",
+      "💰 Quer mudar sua realidade financeira? ",
+      "⚡ SUPER NOVIDADE: "
+    ];
+    
+    const suffixes = [
+      "\n\n👉 Entre em contato agora mesmo via inbox/direct para garantir!",
+      "\n\n✉️ Restam pouquíssimas vagas/unidades. Me chama no privado!",
+      "\n\n📍 Quer saber mais? Clique no link do meu perfil ou envie mensagem no privado!",
+      "\n\n🔥 Aproveite essa oportunidade única! Te espero na conversa inbox.",
+      "\n\n💬 Deixe seu comentário com 'EU QUERO' ou envie mensagem no direct!",
+      "\n\n⚡ Chame agora mesmo no privado para conversar!"
+    ];
+
+    const emojis = ["🚀", "🔥", "💡", "📢", "✨", "✅", "💰", "💥", "🎯", "💎"];
+
+    const localVariations: string[] = [];
+    for (let i = 0; i < 5; i++) {
+      const randomHook = hooks[Math.floor(Math.random() * hooks.length)];
+      const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+      const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const invisibleStamp = "\u200B".repeat(i + 1); 
+      
+      let newText = `${randomHook}${text}${randomSuffix} ${randomEmoji}${invisibleStamp}`;
+      localVariations.push(newText);
+    }
+    
+    setVariations(localVariations);
+    setAiError("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -333,9 +374,21 @@ Regras:
               )}
 
               {aiError && (
-                <div className="p-3 bg-red-950/50 border border-red-900 rounded-lg flex items-start gap-2 text-xs text-red-200">
-                  <AlertCircle size={14} className="mt-0.5 shrink-0" />
-                  <span>{aiError}</span>
+                <div className="p-3 bg-slate-900 border border-slate-800 rounded-lg space-y-2.5 text-xs text-slate-200">
+                  <div className="flex items-start gap-2 text-red-200">
+                    <AlertCircle size={14} className="mt-0.5 shrink-0 text-red-400" />
+                    <span>{aiError}</span>
+                  </div>
+                  <div className="pt-2 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-blue-950/40 p-2.5 rounded-lg border border-blue-950/20">
+                    <span className="text-[10px] text-slate-400">Quer prosseguir sem configurar chaves? Clique ao lado para rodar o Robô de contingência local grátis!</span>
+                    <button
+                      type="button"
+                      onClick={handleGenerateLocalFallback}
+                      className="px-3 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-[10px] rounded-lg transition-all shrink-0 uppercase tracking-wider"
+                    >
+                      ⚡ Gerar de Graça Localmente
+                    </button>
+                  </div>
                 </div>
               )}
 

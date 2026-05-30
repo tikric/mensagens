@@ -80,28 +80,65 @@ export default function AccountsManager({ accounts, onAddAccount, onUpdateAccoun
           </div>
           <button
             onClick={() => setShowManualGuide(!showManualGuide)}
-            className="text-xs px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg font-medium transition"
+            className="text-xs px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition shadow-md shrink-0"
           >
-            {showManualGuide ? "Ocultar Guia Técnico" : "Como funciona o Login?"}
+            {showManualGuide ? "Ocultar Guia do Facebook" : "⚠️ Erro na Meta? Clique Aqui para Resolver"}
           </button>
+        </div>
+
+        {/* ALWAYS SHOW or TOGGLE this highly helpful warning to save the user from Facebook developer portal frustration */}
+        <div className="mt-4 pt-4 border-t border-white/10 text-xs text-slate-300 space-y-3 leading-relaxed">
+          <p className="font-bold text-amber-400 flex items-center gap-1.5 text-sm">
+            <AlertCircle size={16} className="text-amber-400" /> 
+            Por que você está vendo erro na Meta (Developers)? Leia abaixo:
+          </p>
+          <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <p className="text-[11px] text-slate-200">
+              🚨 <strong>Aviso Importante:</strong> Em <strong>22 de Abril de 2024</strong>, a Meta (Facebook) <strong>DESATIVOU COMPLETAMENTE</strong> a API de Grupos do Facebook (<code className="text-amber-300">publish_to_groups</code>) para usuários normais domésticos. Portanto, nenhum aplicativo hoje consegue permissão de postagem automática oficial direto no painel de desenvolvedores, e eles exigirão verificações e pagamentos de empresa que não servem para pessoas físicas.
+            </p>
+            <p className="font-bold text-white text-[11px]">
+              E agora? Não se preocupe! Você NÃO precisa criar aplicativo de desenvolvedores na Meta!
+            </p>
+            <p className="text-[11px] text-slate-200">
+              Nosso sistema foi construído especificamente para rodar de forma híbrida e independente sem necessitar do aplicativo da Meta. Veja abaixo o passo-a-passo simples para cadastrar e começar a postar grátis em menos de 2 minutos:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pt-1">
+            <div className="bg-slate-900/45 p-3 rounded-xl border border-slate-850">
+              <span className="text-[10px] bg-blue-600 text-white font-bold h-5 w-5 rounded-full inline-flex items-center justify-center mb-1.5">1</span>
+              <p className="font-bold text-slate-100 text-[11px]">Cadastrar Perfil</p>
+              <p className="text-[10px] text-slate-400 leading-tight">Aqui mesmo na tela, clique em <strong>"Conectar Nova Conta FB"</strong>. Digite apenas seu nome e e-mail. Deixe o campo "Token" em branco!</p>
+            </div>
+
+            <div className="bg-slate-900/45 p-3 rounded-xl border border-slate-850">
+              <span className="text-[10px] bg-blue-600 text-white font-bold h-5 w-5 rounded-full inline-flex items-center justify-center mb-1.5">2</span>
+              <p className="font-bold text-slate-100 text-[11px]">Copiar Links Grupos</p>
+              <p className="text-[10px] text-slate-400 leading-tight">Vá na guia <strong>"Grupos do Facebook"</strong> no menu lateral e adicione os links dos grupos reais de classificados que você participa.</p>
+            </div>
+
+            <div className="bg-slate-900/45 p-3 rounded-xl border border-slate-850">
+              <span className="text-[10px] bg-blue-600 text-white font-bold h-5 w-5 rounded-full inline-flex items-center justify-center mb-1.5">3</span>
+              <p className="font-bold text-slate-100 text-[11px]">Criar Anúncios</p>
+              <p className="text-[10px] text-slate-400 leading-tight">Na guia <strong>"Modelos de Mensagens"</strong>, monte o texto do seu anúncio principal e crie variações automáticas com IA para não tomar bloqueios.</p>
+            </div>
+
+            <div className="bg-slate-900/45 p-3 rounded-xl border border-slate-850">
+              <span className="text-[10px] bg-blue-600 text-white font-bold h-5 w-5 rounded-full inline-flex items-center justify-center mb-1.5">4</span>
+              <p className="font-bold text-slate-100 text-[11px]">Postagem Híbrida 1-Click</p>
+              <p className="text-[10px] text-slate-400 leading-tight">No menu <strong>"Assistente de Transmissão"</strong>, aperte em Gerar Cronograma. Depois, clique no botão azul <strong>"Copiar e Abrir FB"</strong>. O sistema copia seu anúncio antispam e abre o grupo para você colar e publicar nativamente em 1 segundo!</p>
+            </div>
+          </div>
         </div>
 
         {showManualGuide && (
           <div className="mt-4 pt-4 border-t border-white/10 text-xs text-slate-300 space-y-2 leading-relaxed">
             <p className="font-bold text-white flex items-center gap-1.5">
-              <Globe size={14} className="text-blue-400" /> Detalhes do Login & Automação:
+              <Globe size={14} className="text-blue-400" /> Método Alternativo por Cookies de Navegador:
             </p>
             <p>
-              O Facebook proíbe logins não autorizados via scripts externos. Para contornar isso com segurança, nosso sistema oferece duas abordagens:
+              Se você deseja testar requisições automáticas diretas sem abrir a aba, nosso sistema extrai a sessão pelo navegador real. Você insere o cookie de sessão do seu navegador (como <code>c_user</code> e <code>xs</code>) copiando das ferramentas de desenvolvedores (F12 - Aplicativo - Cookies) do seu próprio Facebook no navegador e colando no campo do formulário de login para simular conexões nativas.
             </p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>
-                <strong>Método Híbrido (Padrão Altamente Seguro):</strong> Sem necessidade de fornecer senhas. Você apenas registra seus perfis locais e usa o nosso <em>Assistente Copiar/Abrir</em>. É 100% à prova de bloqueios de login.
-              </li>
-              <li>
-                <strong>Método por Cookie / Token:</strong> Ao inserir o cookie de sessão do seu navegador (como <code>c_user</code> e <code>xs</code>) ou um Token de Desenvolvedor, o sistema simula os disparos automáticos reproduzindo os cabeçalhos de requisição do seu próprio navegador em segundo plano.
-              </li>
-            </ul>
           </div>
         )}
       </div>
