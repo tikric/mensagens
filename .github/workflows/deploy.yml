@@ -31,8 +31,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          rm -f package-lock.json
-          npm install --include=optional
+          npm install --no-optional
+          npm install @tailwindcss/oxide-linux-x64-gnu
 
       - name: Build Application
         run: npm run build
