@@ -1,0 +1,8 @@
+{
+  "name": "FB Group AutoPoster",
+  "description": "Gerenciador e agendador de postagens para grupos do Facebook com limite de 1 a 5 mensagens diárias, variações inteligentes por IA para evitar bloqueios, e módulo assistente de envio manual.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
