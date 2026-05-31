@@ -955,46 +955,6 @@ Para concluir, basta fazer o upload da mídia baixada e colar a legenda gerada p
           🚀 4 Redes de Vídeo (Consolidado)
         </button>
         <button
-          onClick={() => { setActiveTab("instagram"); removeFile(); }}
-          className={`pb-3 text-xs font-bold uppercase tracking-wider border-b-2 px-4 transition shrink-0 ${
-            activeTab === "instagram"
-              ? "border-pink-600 text-pink-500 font-black"
-              : "border-transparent text-slate-400 hover:text-slate-300"
-          }`}
-        >
-          📸 Instagram Insights
-        </button>
-        <button
-          onClick={() => { setActiveTab("tiktok"); removeFile(); }}
-          className={`pb-3 text-xs font-bold uppercase tracking-wider border-b-2 px-4 transition shrink-0 ${
-            activeTab === "tiktok"
-              ? "border-teal-500 text-teal-400 font-black"
-              : "border-transparent text-slate-400 hover:text-slate-300"
-          }`}
-        >
-          🎵 TikTok Virais
-        </button>
-        <button
-          onClick={() => { setActiveTab("pinterest"); removeFile(); }}
-          className={`pb-3 text-xs font-bold uppercase tracking-wider border-b-2 px-4 transition shrink-0 ${
-            activeTab === "pinterest"
-              ? "border-red-600 text-red-500 font-black"
-              : "border-transparent text-slate-400 hover:text-slate-300"
-          }`}
-        >
-          📌 Pinterest Pins
-        </button>
-        <button
-          onClick={() => { setActiveTab("whatsapp"); removeFile(); }}
-          className={`pb-3 text-xs font-bold uppercase tracking-wider border-b-2 px-4 transition shrink-0 ${
-            activeTab === "whatsapp"
-              ? "border-emerald-600 text-emerald-550 font-black"
-              : "border-transparent text-slate-400 hover:text-slate-300"
-          }`}
-        >
-          💬 Stories do Zap
-        </button>
-        <button
           onClick={() => { setActiveTab("shopee"); removeFile(); }}
           className={`pb-3 text-xs font-bold uppercase tracking-wider border-b-2 px-4 transition shrink-0 ${
             activeTab === "shopee"
