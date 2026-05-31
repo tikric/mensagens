@@ -230,9 +230,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col text-slate-800 font-sans selection:bg-blue-100 antialiased">
+    <div className="min-h-screen bg-slate-950 flex flex-col text-slate-100 font-sans selection:bg-slate-700 antialiased">
       {/* Premium Elegant Header */}
-      <header className="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-3xs backdrop-blur-md bg-white/95">
+      <header className="sticky top-0 z-50 bg-slate-950/85 border-b border-slate-800 shadow-3xs backdrop-blur-md bg-slate-950/95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-blue-600 rounded-xl text-white shadow-md flex items-center justify-center">
@@ -334,11 +334,11 @@ export default function App() {
               onClick={() => setCurrentTab("instagram")}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition duration-150 ${
                 currentTab === "instagram"
-                  ? "bg-indigo-50 text-indigo-700"
-                  : "text-slate-500 hover:bg-slate-50 hover:text-slate-800"
+                  ? "bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 shadow-md shadow-indigo-550/10"
+                  : "text-slate-400 hover:bg-slate-800/80 hover:text-white"
               }`}
             >
-              <Share2 size={16} className="text-pink-600 animate-pulse" /> Multi-Creator IA Hub
+              <Share2 size={16} className="text-pink-500 animate-pulse" /> 🚀 Vídeo único em 4 Redes
             </button>
           </div>
 

@@ -1,1 +1,117 @@
 @import "tailwindcss";
+
+@theme {
+  --color-slate-950: #030712;
+  --color-slate-900: #0f172a;
+}
+
+/* Global Dark Theme Base Override */
+body {
+  background-color: #030712 !important; /* Deepest dark slate/black */
+  color: #f8fafc !important; /* Slate-50 bright light */
+}
+
+/* Glassmorphic Dark Container Override for ALL White Cards & Headers */
+.bg-white {
+  background-color: rgba(15, 23, 42, 0.8) !important; /* Slate-900 transparent */
+  color: #f8fafc !important;
+  border-color: rgba(30, 41, 59, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Header styling */
+header {
+  background-color: rgba(3, 7, 18, 0.8) !important;
+  border-color: rgba(30, 41, 59, 0.9) !important;
+  color: #ffffff !important;
+}
+
+header h1, header p {
+  color: #ffffff !important;
+}
+
+/* Force light text inside cards */
+.text-slate-900, .text-slate-800, .text-slate-700, .text-slate-850, .text-slate-750, .text-slate-650 {
+  color: #f1f5f9 !important;
+}
+
+.text-slate-600, .text-slate-550, .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+.text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Darker backgrounds for layout rails and secondary panels */
+.bg-slate-50, .bg-slate-50\/50, .bg-slate-50\/80, .bg-slate-100, .bg-slate-100\/60, .bg-stone-50 {
+  background-color: rgba(30, 41, 59, 0.5) !important;
+  color: #f1f5f9 !important;
+}
+
+/* Borders */
+.border, .border-slate-100, .border-slate-200, .border-slate-150, .border-stone-200, .border-stone-100 {
+  border-color: rgba(30, 41, 59, 0.9) !important;
+}
+
+/* Inputs, Textareas, Select Options */
+input[type="text"], input[type="password"], input[type="number"], select, textarea {
+  background-color: rgba(3, 7, 18, 0.75) !important;
+  border-color: rgba(51, 65, 85, 0.9) !important;
+  color: #ffffff !important;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Table element alignment for Dark mode */
+tr:hover {
+  background-color: rgba(30, 41, 59, 0.4) !important;
+}
+
+th {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  color: #94a3b8 !important;
+}
+
+/* Navigation button overlays */
+.bg-blue-50 {
+  background-color: rgba(37, 99, 235, 0.25) !important;
+  color: #3b82f6 !important;
+}
+
+.text-blue-700 {
+  color: #60a5fa !important;
+}
+
+.hover\:bg-slate-50:hover, .hover\:bg-slate-100:hover, .hover\:bg-stone-50:hover {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Custom platform mock configurations */
+.mock-device {
+  background-color: #030712 !important;
+  border-color: rgba(30, 41, 59, 0.9) !important;
+}
+
+/* Custom scrollbar adjustments */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.9);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.9);
+}
